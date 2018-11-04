@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+body , html {
+    font-family: 'Cabin', sans-serif;
+    background-color: aqua;
+    margin: 0;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+header {
+    padding: 2em;
+    .logo{
+        color: black;
+        font-weight: bold;
+    }
+    .menu-btn{
+        width: 18px;
+        float: right;
+        cursor: pointer;
+    }
+}
+
+section {
+    padding: 4em;
+    h1{
+        font-size: 4em;
+        margin: 1em auto;
+        width: 70%;
+        text-transform: uppercase;
+
+        &::before{
+            content: '';
+            border-top: 6px solid black;
+            display: block;
+        }
+    }
+}
+
+nav {
+    position: absolute;
+    background:black;
+    padding: 2em;
+    width: calc(100% - 4em);
+    height: calc(100vh - 4em);
+    display: none;
+    transform: scaleX(0);
+    transform-origin: right;
+
+    .close-button {
+        width: 18px;
+        float: right;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    ul{
+        list-style-type: none;
+        margin: 10% auto 0 auto ;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        width: 80%;
+        a{
+            color: white;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+        span {
+            color: gray;
+            display: block;
+            font-size: .75em;
+            margin-top:20px;
+
+        }
+        li{
+            opacity: 0;
+        }
+    }
+}
+
+.show-menu {
+    display: block;
+    animation: slide-menu 1s ease-in forwards;
+    .close-button {
+        animation: show-x 1s 1s forwards;
+    }
+    li:nth-of-type(1){
+        animation: menu-item-anim .6s forwards 1s ease-in-out;
+    }
+    li:nth-of-type(2){
+        animation: menu-item-anim .6s forwards 1.2s ease-in-out;
+    }
+    li:nth-of-type(3){
+        animation: menu-item-anim .6s forwards 1.6s ease-in-out;
+    }
+    li:nth-of-type(4){
+        animation: menu-item-anim .6s forwards 1.8s ease-in-out;
+    }
+
+}
+
+@keyframes slide-menu {
+    from {
+        transform:scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes show-x {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes menu-item-anim {
+    from {
+        transform: translateY(70%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;   
+    }
+}
+
